@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 
   <title>Hangman</title>
 
@@ -42,12 +42,8 @@
 
 <!-- javascript  -->
 <script type="text/javascript">
-
-
-
-  		
+      
 window.onload = function () {
-
   var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
         't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -61,19 +57,15 @@ window.onload = function () {
   var lives ;             // Lives
   var counter ;           // Count correct geusses
   var space;              // Number of spaces in word '-'
-
   // Get elements
   var showLives = document.getElementById("mylives");
   var showCatagory = document.getElementById("scatagory");
   var getHint = document.getElementById("hint");
   var showClue = document.getElementById("clue");
-
-
   // create alphabet ul
   var buttons = function () {
     myButtons = document.getElementById('buttons');
     letters = document.createElement('ul');
-
     for (var i = 0; i < alphabet.length; i++) {
       letters.id = 'alphabet';
       list = document.createElement('li');
@@ -85,12 +77,10 @@ window.onload = function () {
     }
   }
   
-
   // Create geusses ul
   result = function () {
     wordHolder = document.getElementById('hold');
     correct = document.createElement('ul');
-
     for (var i = 0; i < word.length; i++) {
       correct.setAttribute('id', 'my-word');
       guess = document.createElement('li');
@@ -101,7 +91,6 @@ window.onload = function () {
       } else {
         guess.innerHTML = "_";
       }
-
       geusses.push(guess);
       wordHolder.appendChild(correct);
       correct.appendChild(guess);
@@ -120,17 +109,13 @@ window.onload = function () {
       }
     }
   }
-
       // Animate man
   var animate = function () {
     var drawMe = lives ;
     drawArray[drawMe]();
   }
-
   
 //   
-
-
   // OnClick Function
    check = function () {
     list.onclick = function () {
@@ -158,16 +143,14 @@ window.onload = function () {
   play = function () {
     categories = [
         ["chanel", "gucci", "fendi", "prada", "givenchy", "dior", "hermes", "burberry"],
-        ["chanel", "gucci", "fendi", "prada", "givenchy", "dior", "hermes", "burberry"],
-        ["chanel", "gucci", "fendi", "prada", "givenchy", "dior", "hermes", "burberry"]
+        ["Jimmy Choo", "Elie Saab", "Balman", "Vera Wang", "Alexander McQueen", "Roberto Cavalli", "Giorgio Armani", "Jean Paul Gaultier", "Valentino","Jimmy Choo"],
+        ["Giorgio Armani", "Jean Paul Gaultier", "Valentino", "Yves Saint Laurent"]
     ];
-
     chosenCategory = categories[Math.floor(Math.random() * categories.length)];
     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
     word = word.replace(/\s/g, "-");
     console.log(word);
     buttons();
-
     geusses = [ ];
     lives = 20;
     counter = 0;
@@ -177,24 +160,18 @@ window.onload = function () {
     selectCat();
     canvas();
   }
-
   play();
   
   // Hint
-
     hint.onclick = function() {
-
       hints = [
         ["High-end Fashion Brands"]
     ];
-
     var catagoryIndex = categories.indexOf(chosenCategory);
     var hintIndex = chosenCategory.indexOf(word);
     showClue.innerHTML = "Clue: - " +  hints [catagoryIndex][hintIndex];
   };
-
    Reset
-
   document.getElementById('reset').onclick = function() {
     correct.parentNode.removeChild(correct);
     letters.parentNode.removeChild(letters);
@@ -203,7 +180,6 @@ window.onload = function () {
     play();
   }
 }
-
-	</script>
+  </script>
 
 </body>

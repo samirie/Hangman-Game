@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 
 body {
   /*background: color;*/
@@ -13,11 +16,14 @@ body {
     width: 100%;
     height: auto;
 }
-.wrappper{
+#wrappper{
   width:100%;
   margin:0 auto;
 }
 
+.clearfix{
+  clear:both;
+}
 
 canvas{
   color:$white;
